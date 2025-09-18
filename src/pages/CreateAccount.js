@@ -1,4 +1,3 @@
-// src/pages/CreateAccount.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
@@ -6,6 +5,7 @@ import '../App.css';
 const CreateAccount = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [location, setLocation] = useState('');
+    const [theme, setTheme] = useState('light');
     const navigate = useNavigate();
 
     const handleSendCode = async () => {
@@ -20,7 +20,6 @@ const CreateAccount = () => {
 
             if (response.ok) {
                 console.log('Phone number registered successfully!');
-                // You would navigate to an OTP verification page here
                 // navigate('/verify-otp');
             } else {
                 const errorData = await response.json();
@@ -31,11 +30,22 @@ const CreateAccount = () => {
         }
     };
 
+    const toggleTheme = () => {
+        setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    };
+
     return (
-        <div className="create-account-container">
+        <div className={`create-account-container ${theme}-mode`}>
             <div className="header">
                 <span className="back-arrow" onClick={() => navigate('/')}>←</span>
                 <h2>Create Account</h2>
+                <button
+                    className="theme-toggle-btn"
+                    onClick={toggleTheme}
+                    aria-label="Toggle dark/light mode"
+                >
+                    {theme === 'light' ? '🌙' : '☀️'}
+                </button>
             </div>
             <div className="form-group">
                 <label>Phone Number</label>

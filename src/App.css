@@ -1,4 +1,3 @@
-/* Global Styles for the app container */
 body, html {
     margin: 0;
     padding: 0;
@@ -22,7 +21,6 @@ body, html {
     position: relative;
 }
 
-/* Welcome Page Styles */
 .welcome-container {
     display: flex;
     flex-direction: column;
@@ -103,56 +101,139 @@ body, html {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Create Account Page Styles */
-.create-account-container {
-    padding: 20px;
+.create-account-container,
+.login-container {
+    padding: 24px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    background: var(--ca-bg);
+    transition: background 0.3s, color 0.3s;
 }
+
+.create-account-container {
+.light-mode {
+    --ca-bg: #fff;
+    --ca-header: #333;
+    --ca-label: #666;
+    --ca-input-bg: #f7f7f7;
+    --ca-input-border: #ddd;
+    --ca-icon: #4A90E2;
+    --ca-btn-bg: #4A90E2;
+    --ca-btn-hover: #3d7ace;
+    --ca-btn-color: #fff;
+}
+.dark-mode {
+    --ca-bg: #181a20;
+    --ca-header: #f3f3f3;
+    --ca-label: #bdbdbd;
+    --ca-input-bg: #23252b;
+    --ca-input-border: #333;
+    --ca-icon: #71B3E0;
+    --ca-btn-bg: #71B3E0;
+    --ca-btn-hover: #4A90E2;
+    --ca-btn-color: #181a20;
+}
+    padding: 24px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    background: var(--ca-bg);
+    transition: background 0.3s, color 0.3s;
+}
+
+.light-mode {
+    --ca-bg: #fff;
+    --ca-header: #333;
+    --ca-label: #666;
+    --ca-input-bg: #f7f7f7;
+    --ca-input-border: #ddd;
+    --ca-icon: #4A90E2;
+    --ca-btn-bg: #4A90E2;
+    --ca-btn-hover: #3d7ace;
+    --ca-btn-color: #fff;
+}
+.dark-mode {
+    --ca-bg: #181a20;
+    --ca-header: #f3f3f3;
+    --ca-label: #bdbdbd;
+    --ca-input-bg: #23252b;
+    --ca-input-border: #333;
+    --ca-icon: #71B3E0;
+    --ca-btn-bg: #71B3E0;
+    --ca-btn-hover: #4A90E2;
+    --ca-btn-color: #181a20;
+}
+
 
 .header {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    justify-content: space-between;
 }
+
 
 .back-arrow {
     font-size: 24px;
     font-weight: bold;
     margin-right: 20px;
     cursor: pointer;
-    color: #333;
+    color: var(--ca-header);
+    transition: color 0.3s;
 }
+
 
 .header h2 {
     font-size: 1.5rem;
     margin: 0;
+    color: var(--ca-header);
+    flex: 1;
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 10px;
+    color: var(--ca-header);
+    transition: color 0.3s;
+    outline: none;
 }
 
 .form-group {
     margin-bottom: 25px;
 }
 
+
 .form-group label {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.95rem;
+    color: var(--ca-label);
     margin-bottom: 8px;
     display: block;
+    font-weight: 500;
 }
+
 
 .input-with-icon {
     display: flex;
     align-items: center;
-    border: 1px solid #ddd;
+    border: 1px solid var(--ca-input-border);
     border-radius: 8px;
     padding: 12px;
-    background-color: #f7f7f7;
+    background-color: var(--ca-input-bg);
+    transition: background 0.3s, border 0.3s;
 }
 
 .input-with-icon .icon {
     margin-right: 10px;
-    color: #4A90E2;
+    color: var(--ca-icon);
+    font-size: 1.2rem;
 }
 
 .input-with-icon input {
@@ -161,27 +242,31 @@ body, html {
     background-color: transparent;
     flex-grow: 1;
     font-size: 1rem;
-    color: #333;
+    color: var(--ca-header);
+    transition: color 0.3s;
 }
 
 .input-with-icon input::placeholder {
     color: #aaa;
+    opacity: 0.7;
 }
+
 
 .send-code-button {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 8px;
-    background-color: #4A90E2;
-    color: #fff;
+    background-color: var(--ca-btn-bg);
+    color: var(--ca-btn-color);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     margin-top: auto;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s, color 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .send-code-button:hover {
-    background-color: #3d7ace;
+    background-color: var(--ca-btn-hover);
 }
